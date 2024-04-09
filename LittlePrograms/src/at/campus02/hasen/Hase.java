@@ -1,6 +1,6 @@
 package at.campus02.hasen;
 
-public class Hase  {
+public class Hase implements PartyGoer  {
     protected String name;
 
     public Hase(String n) {
@@ -25,5 +25,10 @@ public class Hase  {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public void party(String bringsWith) {
+        System.out.println("Rabbit " + name +" goes to party and brings " + bringsWith);
     }
 }
