@@ -1,6 +1,7 @@
 package at.campus02.hasen;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class App {
@@ -61,7 +62,18 @@ public class App {
             p.party("drinks");
         }
 
-        System.out.println("***** ***** *****");
+        System.out.println("***** Comparatortest *****");
+        List<Hase> hasenList = new ArrayList<>();
+
+        hasenList.add(new Hase("Hansi", 10000, 19));
+        hasenList.add(new Hase("Hansi-Klon", 100, 19));
+        hasenList.add(new Hase("Ann", 100, 5));
+        hasenList.add(new Hase("Morgane", 100000, 2));
+
+        Collections.sort(hasenList, new HasenAlterKarottenComparator());
+        System.out.println(hasenList);
+
+
 
 
     }

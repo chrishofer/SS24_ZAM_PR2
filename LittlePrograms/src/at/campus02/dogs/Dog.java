@@ -1,6 +1,6 @@
 package at.campus02.dogs;
 
-public class Dog {
+public class Dog implements Comparable<Dog> {
 
     // auf private Attribute könnten abgeleitete Klassen nicht zugreifen
     private String name;
@@ -30,5 +30,35 @@ public class Dog {
 
     public void setAlter(int alter) {
         this.alter = alter;
+    }
+
+
+    // Hier möchten wir nach Alter absteigend sortieren
+    // d.h. wir müssen in comparTo das this Objekt mit dem o Objekt
+    // vergleichen
+    // Achtung: im Bsp in den Folien wurde aufsteigend sortiert, deshalb
+    // vertauschte Rückgabewert
+    @Override
+    public int compareTo(Dog o) {
+        if(this.alter >  o.alter){
+            return -1;
+        }
+        if(this.alter < o.alter){
+            return 42;
+        }
+        // falls wir soweit kommen, sind wir weder durch erstes noch
+        // durch zweites if aus der Methode retouniert
+        // ----> sie müssen wohl gleich alt sein
+        return 0;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", alter=" + alter +
+                '}';
     }
 }
